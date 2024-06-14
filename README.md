@@ -35,18 +35,103 @@
 ・ユーザー登録機能
 ・料理のお気に入り機能
 ・料理のコメント投稿・いいね機能
-・レシピのURLを貼ったら、自分のレベルにあっているか判断してくれる機能（できたら）
+・レシピのURLを貼ったら、自分のレベルにあっているかChatGPT APIをしようして判断してくれる機能（できたら）
 
 ■ 機能の実装方針予定
 ・料理レベル診断機能：質問項目はChatGPTに条件を投げて5〜8項目くらいの案をだしてもらう。診断機能は回答ごとに点数をつけて、合計点数で結果が分かれるアルゴリズムを作成する。
-・レベル似合った料理のおすすめ機能：料理レシピのレベルごとにテーブルを作成。診断結果ででたレベルにあった料理をおすすめとして表示できるようアルゴリズムを作成する。
+・レベルに合った料理のおすすめ機能：料理レシピのレベルごとにテーブルを作成。診断結果ででたレベルにあった料理をおすすめとして表示できるようアルゴリズムを作成する。
 
 使用技術
 ・Ruby on Rails
-・TypeScript
 ・Tailwind CSS
 ・PostgreSQL
 ・Docker
 ・ChatGPT API：料理レベル診断機能
 ・JQuery：マルチ検索・オートコンプリート
 ・GCP Recommendations A：レコメンド機能
+
+
+＊料理レベル診断、レベルに合った料理のおすすめ機能アルゴリズム
+
+#問題1
+puts "Q1.野菜が切れますか？"
+puts "1.まったく当てはまらない"
+puts "2.ちょっと当てはまらない"
+puts "3.当てはまる"
+puts "4.まあまあ当てはまる"
+puts "5.とても当てはまる"
+puts "回答を入力してください"
+
+input = gets #ユーザーの入力待ちを発生させる
+
+#問題2
+puts "Q2.肉が切れますか？"
+puts "1.まったく当てはまらない"
+puts "2.ちょっと当てはまらない"
+puts "3.当てはまる"
+puts "4.まあまあ当てはまる"
+puts "5.とても当てはまる"
+puts "回答を入力してください"
+
+input2 = gets #ユーザーの入力待ちを発生させる
+
+#問題3
+puts "Q2.果物が切れますか？"
+puts "1.まったく当てはまらない"
+puts "2.ちょっと当てはまらない"
+puts "3.当てはまる"
+puts "4.まあまあ当てはまる"
+puts "5.とても当てはまる"
+puts "回答を入力してください"
+
+input3 = gets #ユーザーの入力待ちを発生させる
+
+#問題4
+puts "Q2.こんにゃくが切れますか？"
+puts "1.まったく当てはまらない"
+puts "2.ちょっと当てはまらない"
+puts "3.当てはまる"
+puts "4.まあまあ当てはまる"
+puts "5.とても当てはまる"
+puts "回答を入力してください"
+
+input4 = gets #ユーザーの入力待ちを発生させる
+
+input_total = input.to_i + input2.to_i + input3.to_i + input4.to_i
+
+#レベルを判定するif文
+if 7 >= input_total
+    ryori_level = 1
+elsif 10 >= input_total
+    ryori_level = 2
+elsif 13 >= input_total
+    ryori_level = 3
+elsif 16 >= input_total
+    ryori_level = 4
+elsif 20 >= input_total
+    ryori_level = 5
+end
+
+puts "あなたのレベルは #{ryori_level.to_i} です"
+
+#料理テーブル
+#テーブルにあらかじめレベルごとのレシピを登録しておく
+level5_menu_table = ["ビーフシチュー"]
+level4_menu_table = ["カレー"]
+level3_menu_table = ["アヒージョ"]
+level2_menu_table = ["オムライス"]
+level1_menu_table = ["おにぎり"] 
+
+if ryori_level == 1
+    result_menu = level1_menu_table
+elsif ryori_level == 2
+    result_menu = level2_menu_table
+elsif ryori_level == 3
+    result_menu = level3_menu_table
+elsif ryori_level == 4
+    result_menu = level4_menu_table
+elsif ryori_level == 5
+    result_menu = level5_menu_table
+end
+
+puts "あなたにおすすめのレシピは #{result_menu[0]} です"
