@@ -55,7 +55,7 @@
 Figma：https://www.figma.com/design/25tEmaUohXZiWqo0gzchFA/yui_APP-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=Iw9TyAwfjPZypn25-0
 
 ### ER図
-[![Image from Gyazo](https://i.gyazo.com/7ce574e3ff4b442f9c912981a1abf6c4.png)](https://gyazo.com/7ce574e3ff4b442f9c912981a1abf6c4)
+[![Image from Gyazo](https://i.gyazo.com/52d8adb9b76d672faa3ed6ab11debaa5.png)](https://gyazo.com/52d8adb9b76d672faa3ed6ab11debaa5)
 
 
 ＊料理レベル診断、レベルに合った料理のおすすめ機能アルゴリズム
