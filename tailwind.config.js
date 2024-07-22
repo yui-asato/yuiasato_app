@@ -4,7 +4,7 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js'
-  ]
+  ],
 
   theme: {
     extend: {},
@@ -19,18 +19,13 @@ module.exports = {
         'sans-serif',
         'YuGothic',
         'Yu Gothic',
-        'monospace',
-        'fantasy',
-        'Comic Sans MS',
-        'Impact'
       ],
     }
-  }
+  },
 
   fontFamily: {
     banana: ['MS Ｐゴシック','MS PGothic','sans-serif'],
-    ringo : ['Hiragino Sans','ヒラギノ角ゴシック','メイリオ','Meiryo'],
-    momo : ['monospace'],
-  }
+    ringo : [ 'Hiragino Sans','ヒラギノ角ゴシック','メイリオ','Meiryo',],
+  },
 }
 
